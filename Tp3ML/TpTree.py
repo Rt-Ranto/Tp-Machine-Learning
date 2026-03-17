@@ -37,15 +37,15 @@ def prediction(df,le_req:str):
     #tracer l'arbre
     data = tree.export_graphviz(dtree, out_file=None, feature_names=features)
     graph = pydotplus.graph_from_dot_data(data)
-    graph.write_png(r'C:\Users\Ranto Tolojanahary\Desktop\MachineLearning\Supervised Learning\Tp3ML\img\TpTree.png')
+    graph.write_png('img\TpTree.png')
      
-    img=pltimg.imread(r'C:\Users\Ranto Tolojanahary\Desktop\MachineLearning\Supervised Learning\Tp3ML\img\TpTree.png')
+    img=pltimg.imread('img\TpTree.png')
     imgplot = plt.imshow(img)
     prediction = dtree.predict([vvpred])
     pr = conv.Reconvert(prediction[0],col.index(dif[0]))
     print(f"{dif[0]} : {pr}")
     plt.show()
 
-df = pd.read_csv(r"C:\Users\Ranto Tolojanahary\Desktop\MachineLearning\Supervised Learning\Tp3ML\dataSetAchatVoiture.csv")
+df = pd.read_csv("dataSetAchatVoiture.csv")
 req = input("entrer le predict : ")
 prediction(df,req)

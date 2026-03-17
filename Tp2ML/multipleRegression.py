@@ -1,7 +1,7 @@
 import pandas as pd
 from sklearn import linear_model
 
-df = pd.read_csv(r"C:\Users\Ranto Tolojanahary\Desktop\MachineLearning\pandas\Dirtydata.csv")
+df = pd.read_csv("Dirtydata.csv")
 
 
 #donnée sans NaN
