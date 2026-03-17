@@ -1,0 +1,4 @@
+Sport:oui,Redoublant:non,Nouveau:oui
+Sport:oui,Redoublant:non,Passe:oui
+Possède maison:non,Achète Voiture:non,Enfants:oui
+Possède maison:oui,Revenu:Faible,Enfants:oui
