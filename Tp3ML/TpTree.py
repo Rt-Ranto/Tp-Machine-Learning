@@ -8,8 +8,10 @@ import matplotlib.image as pltimg
 from sklearn import tree
 from sklearn.tree import DecisionTreeClassifier
 from convertObjectToNumber import Converter
+from pathlib import Path
 
 warnings.filterwarnings('ignore')
+BASEDIR = Path(__file__).resolve().parent
 
 def prediction(df,le_req:str):
 
@@ -35,17 +37,17 @@ def prediction(df,le_req:str):
     dtree.fit(X_train,y_train)
     
     #tracer l'arbre
-    data = tree.export_graphviz(dtree, out_file=None, feature_names=features)
-    graph = pydotplus.graph_from_dot_data(data)
-    graph.write_png('img\TpTree.png')
+    # data = tree.export_graphviz(dtree, out_file=None, feature_names=features)
+    # graph = pydotplus.graph_from_dot_data(data)
+    # graph.write_png('img/TpTree.png')
      
-    img=pltimg.imread('img\TpTree.png')
-    imgplot = plt.imshow(img)
+    # img=pltimg.imread('img/TpTree.png')
+    # imgplot = plt.imshow(img)
     prediction = dtree.predict([vvpred])
     pr = conv.Reconvert(prediction[0],col.index(dif[0]))
     print(f"{dif[0]} : {pr}")
-    plt.show()
+    # plt.show()
 
-df = pd.read_csv("dataSetAchatVoiture.csv")
+df = pd.read_csv(BASEDIR / "dataSetAchatVoiture.csv")
 req = input("entrer le predict : ")
 prediction(df,req)

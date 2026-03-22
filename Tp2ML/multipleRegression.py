@@ -1,9 +1,10 @@
+from pathlib import Path
 import pandas as pd
 from sklearn import linear_model
 
-df = pd.read_csv("Dirtydata.csv")
 
-
+path = Path(__file__).resolve().parent / "Dirtydata.csv"
+df = pd.read_csv(path)
 #donnée sans NaN
 train = df[df['Calories'].notna()]
 #Seulement les donnée avec NaN
